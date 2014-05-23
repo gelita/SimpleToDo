@@ -93,9 +93,15 @@ public class TodoActivity extends Activity {
 	
 	public void addTodoItem(View v){
 		EditText etNewItem = (EditText) findViewById(R.id.etNewItem);
-		itemsAdapter.add(etNewItem.getText().toString());
-		etNewItem.setText("");
-		saveItems();//write to file
+		if(etNewItem.getText().toString().length() == 0 ){
+		    etNewItem.setError( "Please enter an item." );
+		    return;
+		}else {
+			itemsAdapter.add(etNewItem.getText().toString());
+			etNewItem.setText("");
+			saveItems();//write to file
+			return;
+		}
 	}
 	
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {

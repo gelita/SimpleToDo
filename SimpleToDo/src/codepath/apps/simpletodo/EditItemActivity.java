@@ -23,14 +23,19 @@ public class EditItemActivity extends Activity {
 		
 	public void onSubmit(View v) {		
 		  int pos = getIntent().getIntExtra("position", 0);
-		  EditText etEditItem = (EditText) findViewById(R.id.etEditItem);		  
-		  // Prepare data intent 
-		  Intent data = new Intent();
-		  // Pass relevant data back as a result
-		  data.putExtra("item", etEditItem.getText().toString() );
-		  data.putExtra("position", pos);
-		  // Activity finished ok, return the data
-		  setResult(RESULT_OK, data); // set result code and bundle data for response
-		  finish(); // closes the activity, pass data to parent
+		  EditText etEditItem = (EditText) findViewById(R.id.etEditItem);
+		  if(etEditItem.getText().toString().length() == 0 ){
+			    etEditItem.setError( "Please make a valid entry." );
+			    return;
+		  }else {
+			  // Prepare data intent 
+			  Intent data = new Intent();
+			  // Pass relevant data back as a result
+			  data.putExtra("item", etEditItem.getText().toString() );
+			  data.putExtra("position", pos);
+			  // Activity finished ok, return the data
+			  setResult(RESULT_OK, data); // set result code and bundle data for response
+			  finish(); // closes the activity, pass data to parent
+		  }
 	}	
 }
