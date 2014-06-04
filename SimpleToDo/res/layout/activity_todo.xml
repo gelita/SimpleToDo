@@ -7,35 +7,34 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="codepath.apps.simpletodo.TodoActivity" >
-
-    <ListView
-        android:id="@+id/lvItems"
-        android:layout_width="match_parent"
-        android:layout_height="380dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
-    </ListView>
+    tools:context="codepath.apps.simpletodo.TodoActivity" >   
     
     <EditText
         android:id="@+id/etNewItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/lvItems"
-        android:layout_below="@id/lvItems"        
-        android:ems="10"
+       android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+           android:ems="10"
         android:hint="@string/etNewItem_hint" >
         <requestFocus />
-    </EditText>
-        
+   </EditText>  
+
     <Button
         android:id="@+id/btnAddItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/etNewItem"
-        android:layout_alignRight="@id/lvItems"
+        android:layout_toRightOf="@+id/etNewItem"
         android:onClick="addTodoItem"
         android:text="@string/btnAddItem" >
-    </Button>   
+    </Button>
     
+    <ListView
+        android:id="@+id/lvItems"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_below="@+id/etNewItem"
+        android:layout_alignLeft="@+id/etNewItem"
+        >
+    </ListView>
 </RelativeLayout>   
